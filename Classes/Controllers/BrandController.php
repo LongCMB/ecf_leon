@@ -2,6 +2,7 @@
 
 
 namespace Classes\Controllers;
+use Classes\Models\Brand;
 use Classes\Models\BrandManager;
 
 
@@ -30,7 +31,14 @@ class BrandController
         }
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            'on implémentera plus tard';
+            $marque = new Brand();
+            $marque->setName($_POST['marque']);
+
+            $manager = new BrandManager();
+            $manager->create($marque);
+
+            $marques = $manager->findAll();
+            return $marques;
         }
 
     }
