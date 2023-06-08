@@ -4,6 +4,7 @@ use App\Autoloader as AppAutoloader;
 use Core\Autoloader as CoreAutoloader;
 use App\Brand\Brand;
 use App\Brand\BrandManager;
+use Core\Controller;
 
 require_once('../conf/constantes.php');
 
@@ -30,10 +31,21 @@ $psa = new Brand(['brand' => 'PSA']);
 
 $manager = new BrandManager($dao);
 
-$output = $manager->findById(4);
+// $output = $manager->findById(4);
 
-// Debug::vardum($output);
+// // Debug::vardum($output);
 
-$manager->create($psa);
+// $manager->create($psa);
 
-Debug::vardum($manager->findAll());
+// Debug::vardum($manager->findAll());
+
+$action = $_GET['action'] ?? 'index'; 
+$controllerName = $_GET['controller'] ?? 'Controller'; 
+
+$controller = new $controllerName();
+
+if (!method_exists($controller, $action)) {
+    die("404 Not Found"); 
+}
+
+$controller->$action();
