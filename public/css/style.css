@@ -1,0 +1,60 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+.nav ul a {
+    text-decoration: none;
+    color: #8C4B00;
+}
+
+table,
+th,
+td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+table {
+    width: 95%;
+}
+
+table a {
+    text-decoration: none;
+    color: #8C4B00;
+}
+
+table a:hover {
+    color: #258CB8;
+}
+
+th {
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0.2rem 0.6rem;
+}
+
+main .marque {
+    border: solid 3px #383735;
+    border-radius: 15px;
+}
+
+a.btn {
+    color: #8C4B00;
+}
+
+a.btn:hover {
+    color: #258CB8;
+}
