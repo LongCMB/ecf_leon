@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Classes/BrandManager.php';
-require_once 'Classes/Brand.php';
-require_once 'Classes/Debug.php';
+require_once '../App/Brand/Brand.php';
+require_once '../App/Brand/BrandManager.php';
+require_once '../App/Debug.php';
 
 $dao = new PDO ('mysql:host=localhost;dbname=instruments', 'root', '');
 $dao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

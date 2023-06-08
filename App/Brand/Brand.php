@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Classe Brand
+ *
+ * Description : Représente l'entité Brand.
+ */
 class Brand
 {
     private readonly int $id;
@@ -9,11 +14,19 @@ class Brand
     public function __construct(array|null $data = null)
     {
         if (!is_null($data)) {
-            $this->hydrater($data);
+            $this->hydrate($data);
         }
     }
+    /**
+     * Méthode hydrate
+     *
+     * Description : Hydrate l'entité avec les données fournies.
+     *
+     * @param array $data Les données à utiliser pour l'hydratation.
+     * @return self L'objet Brand hydraté.
+     */
 
-    public function hydrater(array $data)
+    public function hydrate(array $data):self
     {
         foreach ($data as $key => $value) {
             $method = 'set' . ucfirst($key);
@@ -21,6 +34,7 @@ class Brand
                 $this->$method($value);
             }
         }
+        return $this;
     }
 
     /**
@@ -53,9 +67,10 @@ class Brand
     {
         if ($id <= 0) {
             throw new Exception('ID doit être positive !');
+        } else{
+            $this->id = $id;
+            return $this;
         }
-        $this->id = $id;
-        return $this;
     }
 
     /**
